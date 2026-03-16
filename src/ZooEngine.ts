@@ -4,7 +4,6 @@ export default class ZooEngine {
     private static _instance: ZooEngine | null = null
     readonly canvas: HTMLCanvasElement
     readonly engine: Engine
-    readonly scene: Scene
 
     private constructor(canvas: HTMLCanvasElement) {
         this.canvas = canvas
@@ -13,16 +12,15 @@ export default class ZooEngine {
             stencil: true,
             disableWebGL2Support: false,
         })
-        this.scene = new Scene(this.engine)
 
         window.addEventListener('resize', () => {
             this.engine.resize()
         })
     }
 
-    startRenderLoop() {
+    startRenderLoop(scene: Scene) {
         this.engine.runRenderLoop(() => {
-            this.scene.render()
+            scene.render()
         })
     }
 
