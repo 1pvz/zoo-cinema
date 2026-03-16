@@ -3,6 +3,7 @@ import {
     Color4,
     Vector3,
     ArcRotateCamera,
+    HemisphericLight,
 } from "@babylonjs/core"
 import type ZooEngine from "../ZooEngine"
 
@@ -18,6 +19,8 @@ export default class CinemaScene {
         this.camera.layerMask = 0b01
 
         this.scene.activeCameras?.push(this.camera)
+
+        this._setupLights()
     }
 
     private _createCamera(name: string, canvas: HTMLCanvasElement): ArcRotateCamera {
@@ -29,5 +32,10 @@ export default class CinemaScene {
         camera.angularSensibilityX = 150
         camera.angularSensibilityY = 150
         return camera
+    }
+
+    private _setupLights() {
+        const ambient = new HemisphericLight('ambient', new Vector3(0, 1, 0), this.scene)
+        ambient.intensity = 0.5
     }
 }
