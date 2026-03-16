@@ -10,7 +10,22 @@ import {
 
 export default class Environment {
     constructor(scene: Scene) {
+        this._setupGround(scene)
         this._setupSkyBox(scene)
+    }
+
+    private _setupGround(scene: Scene): void {
+        const ground = MeshBuilder.CreateGround('ground', { width: 600, height: 600 }, scene)
+
+        const material = new StandardMaterial('groundMat', scene)
+        const diffuseTex = new Texture('texture/grass_normal.png', scene)
+        diffuseTex.uScale = 20
+        diffuseTex.vScale = 20
+        material.diffuseTexture = diffuseTex
+
+        ground.material = material
+        ground.layerMask = 0b01
+        ground.receiveShadows = true
     }
 
     private _setupSkyBox(scene: Scene): void {

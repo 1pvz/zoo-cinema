@@ -13,6 +13,8 @@ const __main = async () => {
     await modelLoader.loadAnimals()
     console.log('load animals', modelLoader.names)
 
+    const asset = modelLoader.getAsset(modelLoader.names[0])
+
     engine.startRenderLoop(cinema.scene)
 }
 

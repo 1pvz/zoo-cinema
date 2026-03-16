@@ -79,6 +79,10 @@ export default class ModelLoader {
         return root
     }
 
+    getAsset(name: string): LoadedAsset | undefined {
+        return this._assets.get(name)
+    }
+
     get names(): string[] {
         return [...this._assets.keys()]
     }
