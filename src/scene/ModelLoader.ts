@@ -57,7 +57,9 @@ export default class ModelLoader {
 
     private _findRoot(meshes: AbstractMesh[]): AbstractMesh {
         const root = meshes.find(m => m.parent == null)!
-
+        for (const mesh of meshes) {
+            mesh.layerMask = 0b01
+        }
         let min: Vector3 | null = null
         let max: Vector3 | null = null
         for (const mesh of meshes) {

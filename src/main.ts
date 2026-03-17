@@ -2,6 +2,9 @@ import ZooEngine from "./ZooEngine"
 import CinemaScene from "./scene/CinemaScene"
 import Environment from "./scene/Environment"
 import ModelLoader from "./scene/ModelLoader"
+import Player from "./scene/Player"
+import PlayerController from "./scene/PlayerController"
+import VideoScreen from "./scene/VideoScreen"
 
 const __main = async () => {
     const canvas = document.getElementById('id-render-canvas') as HTMLCanvasElement
@@ -11,9 +14,12 @@ const __main = async () => {
 
     const modelLoader = new ModelLoader(cinema.scene)
     await modelLoader.loadAnimals()
-    console.log('load animals', modelLoader.names)
 
-    const asset = modelLoader.getAsset(modelLoader.names[0])
+    const asset = modelLoader.getAsset('fox')!
+    const player = new Player(asset)
+    new PlayerController(cinema.scene, player, cinema.camera)
+
+    const videoScreen = new VideoScreen(cinema.scene, '/video/waterfall.mp4')
 
     engine.startRenderLoop(cinema.scene)
 }
