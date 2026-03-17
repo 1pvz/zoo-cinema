@@ -23,7 +23,7 @@ const __main = async () => {
     const asset = modelLoader.getAsset('fox')!
     const player = new Player(asset)
     new PlayerController(cinema.scene, player, cinema.camera)
-    new VideoScreen(cinema.scene, '/video/waterfall.mp4')
+    new VideoScreen(cinema.scene, '/video/zootopia.mp4')
 
     engine.startRenderLoop(cinema.scene)
 }
