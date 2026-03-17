@@ -25,6 +25,10 @@ const animalModels: ModelConfig = {
     fox: 'model/fox.glb',
 }
 
+const envModels: ModelConfig = {
+    env: 'model/env.glb',
+}
+
 export default class ModelLoader {
     private readonly _scene: Scene
     private readonly _assets: Map<string, LoadedAsset> = new Map()
@@ -35,6 +39,10 @@ export default class ModelLoader {
 
     async loadAnimals(): Promise<void> {
         await this.loadModels(animalModels)
+    }
+
+    async loadEnvironments(): Promise<void> {
+        await this.loadModels(envModels)
     }
 
     async loadModels(config: ModelConfig): Promise<void> {

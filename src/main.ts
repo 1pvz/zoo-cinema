@@ -5,6 +5,7 @@ import ModelLoader from "./scene/ModelLoader"
 import Player from "./scene/Player"
 import PlayerController from "./scene/PlayerController"
 import VideoScreen from "./scene/VideoScreen"
+import EnvironmentModel from "./scene/EnvironmentModel"
 
 const __main = async () => {
     const canvas = document.getElementById('id-render-canvas') as HTMLCanvasElement
@@ -14,12 +15,15 @@ const __main = async () => {
 
     const modelLoader = new ModelLoader(cinema.scene)
     await modelLoader.loadAnimals()
+    await modelLoader.loadEnvironments()
+
+    const envAsset = modelLoader.getAsset('env')!
+    await EnvironmentModel.create(envAsset)
 
     const asset = modelLoader.getAsset('fox')!
     const player = new Player(asset)
     new PlayerController(cinema.scene, player, cinema.camera)
-
-    const videoScreen = new VideoScreen(cinema.scene, '/video/waterfall.mp4')
+    new VideoScreen(cinema.scene, '/video/waterfall.mp4')
 
     engine.startRenderLoop(cinema.scene)
 }
