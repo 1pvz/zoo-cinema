@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@babylonjs/core": "^8.55.1",
+    "@babylonjs/gui": "^8.55.3",
     "@babylonjs/loaders": "^8.55.2"
   }
 }

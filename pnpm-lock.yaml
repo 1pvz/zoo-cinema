@@ -11,6 +11,9 @@ importers:
       '@babylonjs/core':
         specifier: ^8.55.1
         version: 8.55.1
+      '@babylonjs/gui':
+        specifier: ^8.55.3
+        version: 8.55.3(@babylonjs/core@8.55.1)
       '@babylonjs/loaders':
         specifier: ^8.55.2
         version: 8.55.2(@babylonjs/core@8.55.1)(babylonjs-gltf2interface@8.55.2)
@@ -26,6 +29,11 @@ packages:
 
   '@babylonjs/core@8.55.1':
     resolution: {integrity: sha512-C4vLcglBdM5B6vsDFZSIsW0Kn+8KbXMqiyLUifKW2S4kr//i3SPPucw98IYKvO1H3F0yk+f9rkrTRb7oLBSUOw==}
+
+  '@babylonjs/gui@8.55.3':
+    resolution: {integrity: sha512-LXwiXLVEA7elc4R0tQ8EMPybtVjbVjB/ONS3vQ6XJ9vN0CGysoQwhijsHnpedFG4Re1QYUcFxN/tvs9OrGZF+w==}
+    peerDependencies:
+      '@babylonjs/core': ^8.0.0
 
   '@babylonjs/loaders@8.55.2':
     resolution: {integrity: sha512-oNQA7g5W3tuhdsD1RXYRVlkCAXLCNrL9+kSez49pvMuZ3DOykcnSAFIcCjXNNmJo8X4VCfP/1VNjujdqyTkSUw==}
@@ -321,6 +329,10 @@ packages:
 snapshots:
 
   '@babylonjs/core@8.55.1': {}
+
+  '@babylonjs/gui@8.55.3(@babylonjs/core@8.55.1)':
+    dependencies:
+      '@babylonjs/core': 8.55.1
 
   '@babylonjs/loaders@8.55.2(@babylonjs/core@8.55.1)(babylonjs-gltf2interface@8.55.2)':
     dependencies:
