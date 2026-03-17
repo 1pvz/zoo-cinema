@@ -21,7 +21,7 @@ export default class VideoScreen {
             height: 90,
             sideOrientation: Mesh.DOUBLESIDE,
         }, scene)
-        this._plane.position = new Vector3(0, 50, 0)
+        this._plane.position = new Vector3(0, 20, 0)
         this._plane.layerMask = 0b01
 
         const material = new StandardMaterial('videoScreenMat', scene)
